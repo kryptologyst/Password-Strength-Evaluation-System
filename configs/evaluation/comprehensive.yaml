@@ -1,0 +1,61 @@
+# Comprehensive evaluation configuration
+_target_: src.eval.evaluator.PasswordStrengthEvaluator
+
+# Metrics to compute
+metrics:
+  classification:
+    - accuracy
+    - precision_macro
+    - recall_macro
+    - f1_macro
+    - precision_weighted
+    - recall_weighted
+    - f1_weighted
+  
+  security_specific:
+    - entropy_correlation
+    - time_to_crack_correlation
+    - breach_detection_precision
+    - pattern_detection_recall
+  
+  robustness:
+    - adversarial_robustness
+    - threshold_sensitivity
+    - cross_dataset_generalization
+
+# Evaluation thresholds
+thresholds:
+  weak_max: 0.33
+  moderate_max: 0.66
+  strong_min: 0.67
+
+# Cross-validation settings
+cross_validation:
+  enabled: true
+  folds: 5
+  stratify: true
+  shuffle: true
+
+# Ablation studies
+ablation_studies:
+  enabled: true
+  components:
+    - entropy_only
+    - pattern_only
+    - length_only
+    - diversity_only
+    - full_model
+
+# Statistical tests
+statistical_tests:
+  enabled: true
+  confidence_level: 0.95
+  multiple_comparison_correction: "bonferroni"
+
+# Output settings
+output:
+  save_predictions: true
+  save_probabilities: true
+  save_feature_importances: true
+  generate_report: true
+  report_format: "html"

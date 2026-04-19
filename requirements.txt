@@ -1,0 +1,45 @@
+# Core dependencies
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+scipy>=1.10.0
+tqdm>=4.65.0
+pyyaml>=6.0
+matplotlib>=3.7.0
+plotly>=5.15.0
+
+# Deep learning (optional for advanced models)
+torch>=2.0.0
+torchvision>=0.15.0
+transformers>=4.30.0
+
+# Security and privacy utilities
+scapy>=2.5.0
+python-whois>=0.7.0
+tldextract>=3.4.0
+ua-parser>=0.18.0
+
+# Privacy tech (optional)
+opacus>=1.4.0
+diffprivlib>=0.6.0
+
+# Adversarial robustness (optional)
+foolbox>=3.3.0
+
+# Tracking (optional)
+mlflow>=2.5.0
+
+# Serving (optional)
+fastapi>=0.100.0
+uvicorn>=0.23.0
+pydantic>=2.0.0
+
+# Development tools
+black>=23.0.0
+ruff>=0.0.280
+pytest>=7.4.0
+pre-commit>=3.3.0
+
+# Demo interface
+streamlit>=1.25.0
+gradio>=3.40.0

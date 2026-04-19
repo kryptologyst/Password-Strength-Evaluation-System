@@ -1,0 +1,62 @@
+# Default configuration for Password Strength Evaluation
+defaults:
+  - _self_
+  - override /data: synthetic.yaml
+  - override /model: entropy_based.yaml
+  - override /evaluation: comprehensive.yaml
+
+# Global settings
+seed: 42
+device: auto  # auto, cpu, cuda, mps
+log_level: INFO
+timezone: UTC
+
+# Data settings
+data:
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+  min_password_length: 1
+  max_password_length: 128
+  synthetic_size: 10000
+
+# Model settings
+model:
+  name: entropy_based
+  entropy_thresholds:
+    weak: 20
+    moderate: 40
+    strong: 60
+  complexity_weights:
+    length: 0.3
+    character_diversity: 0.2
+    entropy: 0.3
+    pattern_detection: 0.2
+
+# Evaluation settings
+evaluation:
+  metrics:
+    - accuracy
+    - precision_macro
+    - recall_macro
+    - f1_macro
+    - entropy_correlation
+  thresholds:
+    weak_max: 0.33
+    moderate_max: 0.66
+  cross_validation:
+    enabled: true
+    folds: 5
+
+# Privacy settings
+privacy:
+  hash_passwords: true
+  anonymize_outputs: true
+  max_log_length: 50
+
+# Demo settings
+demo:
+  max_passwords_per_batch: 100
+  enable_breach_check: true
+  enable_entropy_visualization: true
+  enable_pattern_analysis: true

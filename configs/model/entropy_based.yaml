@@ -1,0 +1,39 @@
+# Entropy-based model configuration
+_target_: src.models.entropy_model.EntropyBasedModel
+
+# Entropy calculation parameters
+entropy:
+  character_set_sizes:
+    lowercase: 26
+    uppercase: 26
+    digits: 10
+    symbols: 32
+  min_entropy: 0
+  max_entropy: 100
+
+# Classification thresholds
+classification:
+  weak_threshold: 20
+  moderate_threshold: 40
+  strong_threshold: 60
+
+# Feature engineering
+features:
+  length_weight: 0.3
+  diversity_weight: 0.2
+  entropy_weight: 0.3
+  pattern_weight: 0.2
+  
+# Pattern detection
+patterns:
+  keyboard_patterns: true
+  sequential_patterns: true
+  repeated_patterns: true
+  dictionary_patterns: true
+  personal_info_patterns: true
+
+# Advanced features
+advanced:
+  zxcvbn_style_scoring: true
+  breach_check_simulation: true
+  time_to_crack_estimation: true

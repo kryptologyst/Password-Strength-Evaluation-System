@@ -1,0 +1,44 @@
+# Synthetic data configuration
+_target_: src.data.synthetic_data.SyntheticPasswordGenerator
+
+# Password generation parameters
+password_lengths:
+  min: 4
+  max: 32
+  distribution: "normal"  # uniform, normal, exponential
+
+# Character sets
+character_sets:
+  lowercase: "abcdefghijklmnopqrstuvwxyz"
+  uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  digits: "0123456789"
+  symbols: "!@#$%^&*()_+-=[]{}|;:,.<>?"
+  special_chars: "!@#$%^&*()_+-=[]{}|;:,.<>?"
+
+# Pattern probabilities
+pattern_probabilities:
+  dictionary_word: 0.3
+  keyboard_pattern: 0.2
+  sequential: 0.15
+  repeated_chars: 0.1
+  personal_info: 0.1
+  random: 0.15
+
+# Common weak patterns
+weak_patterns:
+  - "password"
+  - "123456"
+  - "qwerty"
+  - "admin"
+  - "letmein"
+  - "welcome"
+  - "monkey"
+  - "dragon"
+  - "master"
+  - "hello"
+
+# Breach simulation
+breach_simulation:
+  enabled: true
+  breach_probability: 0.1
+  common_breached_passwords: 1000
